@@ -14,4 +14,6 @@ FROM base
 COPY --from=builder /install /usr/local
 
 COPY . .
+ENV FRONTEND_ADDR frontend.default.svc.cluster.local
+RUN chmod +x ./loadgen.sh
 ENTRYPOINT ./loadgen.sh
